@@ -1,0 +1,15 @@
+#Files
+*
+# All except:
+!.gitignore
+!.gitconfig
+!.bash_rc
+!.inputrc
+!.minttyrc
+
+# Folders
+# All except:
+!.openstack/
+!.openstack/*
+!.ssh/
+!.ssh/*.pub
