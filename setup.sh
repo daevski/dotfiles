@@ -23,7 +23,7 @@ prompt_with_default() {
     local default="$2"
     local result
     
-    echo -n "$prompt [$default]: "
+    printf "%s [%s]: " "$prompt" "$default"
     read -r result
     echo "${result:-$default}"
 }
@@ -78,6 +78,23 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
+
+# Check if script is being piped (curl | bash) and handle stdin
+handle_piped_execution() {
+    if [ ! -t 0 ]; then
+        # stdin is not a terminal (likely piped from curl)
+        log_warning "Detected piped execution (curl | bash)"
+        log_info "Interactive prompts require a terminal for input"
+        log_info "Please download and run the script directly instead:"
+        echo ""
+        echo "  curl -fsSL https://raw.githubusercontent.com/$DEFAULT_REPO_OWNER/$DEFAULT_REPO_NAME/main/setup.sh -o setup.sh"
+        echo "  chmod +x setup.sh"
+        echo "  ./setup.sh"
+        echo ""
+        log_info "Alternatively, run with non-interactive mode (if implemented)"
+        exit 1
+    fi
+}
 
 # Logging functions
 log_info() {
@@ -419,6 +436,7 @@ main() {
                 ;;
             --defaults)
                 SKIP_PROMPTS=true
+                SKIP_CONFIRMATION=true
                 REPO_OWNER="$DEFAULT_REPO_OWNER"
                 REPO_NAME="$DEFAULT_REPO_NAME"
                 BRANCH="$DEFAULT_BRANCH"
@@ -552,6 +570,9 @@ is_dotfiles_environment() {
 
 # Handle script interruption
 trap cleanup EXIT
+
+# Handle piped execution (curl | bash) before any interactive prompts
+handle_piped_execution "$@"
 
 # Check if we should delegate to existing environment first
 if is_dotfiles_environment && [ $# -gt 0 ] && [[ "$1" != "-"* ]]; then
