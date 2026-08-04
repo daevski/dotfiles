@@ -24,7 +24,20 @@
     ],
     "clock": {
         "interval": 10,
-        "format": "{:%a • %H:%M • %b-%d}"
+        "format": "{:%a • %H:%M • %b-%d}",
+        "tooltip-format": "<span font='Source Code Pro 12'>{calendar}</span>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "cpu": {
         "format": "cpu [ {usage}% ]",
