@@ -31,3 +31,5 @@ application/x-x509-ca-cert=code.desktop;
 video/mpeg=vlc.desktop;
 video/webm=vlc.desktop;
 application/json=code.desktop;
+video/vnd.avi=vlc.desktop;com.google.Chrome.desktop;
+image/jpeg=imv.desktop;
