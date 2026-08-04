@@ -286,7 +286,7 @@ layout {
 spawn-at-startup "waybar"
 
 // Wallpaper background daemon
-spawn-sh-at-startup "pkill swaybg; swaybg -i /home/david/Pictures/wallpaper/glowing_abstract_rings.jpg -m fill"
+spawn-sh-at-startup "pkill swaybg; swaybg -i /home/david/SynologyDrive/system/wallpapers/neon-blue-circle.jpg -m fill"
 
 // Night light / color temperature adjustment
 spawn-at-startup "wlsunset" "-T" "5000" "-t" "4000" "-l" "35.7796" "-L" "-78.6382"
@@ -605,6 +605,7 @@ binds {
     // Quick sizing
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { maximize-window-to-edges; }
     Mod+C { center-column; }
 
     // Fine width adjustment (Mod+Alt + H/L or Minus/Equal)
