@@ -12,18 +12,31 @@
     color: #ffffff;
 }
 
-/* ── Shared module internals ─────────────────────────────────────── */
+/* ── Shared module styles ────────────────────────────────────────── */
+
+#custom-power,
+#cpu,
+#memory,
+#clock,
+#custom-updates,
+#custom-window-name,
+#battery,
+#wireplumber,
+#custom-network,
+#tray {
+    color: #ffffff;
+    border-bottom: 1px solid rgba(128, 200, 255, 0.45);
+    padding: 0px 12px 2px;
+    margin: 1px 8px 0;
+}
+
+/* ── Left: power + cpu + memory (joined pill) ────────────────────── */
 
 #custom-power,
 #cpu,
 #memory {
-    color: #ffffff;
-    padding: 0px 12px 2px;
-    margin: 1px 0 4px;
-    border-bottom: 1px solid rgba(128, 200, 255, 0.45);
+    margin: 1px 0 0;
 }
-
-/* ── Left: power + cpu + memory (one joined pill) ────────────────── */
 
 #custom-power {
     font-family: "Adwaita Mono", "Source Code Pro", monospace;
@@ -35,39 +48,17 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* ── Center: clock and updates ───────────────────────────────────── */
-
-#clock {
-    font-size: 11px;
-    color: #ffffff;
-    border-bottom: 1px solid rgba(128, 200, 255, 0.45);
-    padding: 1px 18px 2px 18px;
-    margin: 1px 8px 4px;
-}
-
-#custom-updates {
-    color: #ffffff;
-    border-bottom: 1px solid rgba(128, 200, 255, 0.45);
-    padding: 0px 12px 2px;
-    margin: 1px 8px 4px;
-}
-
-/* memory is the right end of the left pill; cpu sits flush in the middle */
 #memory {
     margin-right: 4px;
 }
 
-/* ── Right: window, volume, network, battery (standalone pills) ──── */
+/* ── Center: clock ───────────────────────────────────────────────── */
 
-#custom-window-name,
-#battery,
-#wireplumber,
-#custom-network {
-    color: #ffffff;
-    border-bottom: 1px solid rgba(128, 200, 255, 0.45);
-    padding: 0px 12px 2px;
-    margin: 1px 8px 4px;
+#clock {
+    padding: 1px 18px 2px 18px;
 }
+
+/* ── Right: window, volume, network, battery ─────────────────────── */
 
 #custom-window-name {
     font-style: italic;
@@ -75,7 +66,6 @@
     margin-right: 4px;
 }
 
-/* Tighten the inner gaps within the right cluster (window | vol | net) */
 #wireplumber {
     margin-left: 4px;
     margin-right: 4px;
@@ -88,7 +78,6 @@
 /* ── Tray ────────────────────────────────────────────────────────── */
 
 #tray {
-    border-bottom: 1px solid rgba(128, 200, 255, 0.45);
     padding: 0px 6px 2px;
-    margin: 1px 8px 4px 4px;
+    margin: 1px 8px 0 4px;
 }
