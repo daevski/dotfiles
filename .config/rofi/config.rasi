@@ -10,7 +10,7 @@
   lightbg:                     @mantle;
   background-color:            transparent;
   border-color:                @lime;
-  normal-background:           @background;
+  normal-background:           transparent;
   selected-urgent-background:  @red;
   alternate-active-background: @lightbg;
   spacing:                     2;
@@ -22,7 +22,7 @@
   selected-active-background:  @lime;
   active-background:           @background;
   selected-normal-background:  @cyan;
-  alternate-normal-background: @lightbg;
+  alternate-normal-background: rgba(22, 27, 34, 0.5);
   foreground:                  @text;
   selected-urgent-foreground:  @background;
   normal-foreground:           @foreground;
@@ -98,7 +98,7 @@ element-icon {
 
 window {
     padding:          5;
-    background-color: @background;
+    background-color: rgba(13, 17, 23, 0.85);
     border:           1;
 }
 
