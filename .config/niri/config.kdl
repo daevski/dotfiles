@@ -297,6 +297,16 @@ spawn-at-startup "copyq"
 // XWayland support for X11-only applications (e.g. Synology Drive)
 spawn-at-startup "xwayland-satellite"
 
+// Idle management and lock screen (started here because lemurs bypasses niri.service/graphical-session.target)
+spawn-at-startup "hypridle"
+
+// Desktop notifications
+spawn-at-startup "mako"
+
+// System tray / autostart apps (started here because lemurs bypasses xdg-desktop-autostart.target)
+spawn-at-startup "remmina" "-i"
+spawn-at-startup "synology-drive" "autostart"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -623,8 +633,14 @@ binds {
     // Cycle through preset heights (1/3, 1/2, 2/3)
     Mod+Alt+F { switch-preset-window-height; }
 
+    // Move floating windows (arrow keys, since HJKL are taken for resize)
+    Mod+Alt+Up    { spawn-sh "niri msg action move-floating-window --y -10"; }
+    Mod+Alt+Down  { spawn-sh "niri msg action move-floating-window --y +10"; }
+    Mod+Alt+Left  { spawn-sh "niri msg action move-floating-window --x -10"; }
+    Mod+Alt+Right { spawn-sh "niri msg action move-floating-window --x +10"; }
+
     // Move the focused window between the floating and the tiling layout.
-    Mod+Shift+Space { toggle-window-floating; }
+    Mod+Backslash { toggle-window-floating; }
     // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
