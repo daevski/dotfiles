@@ -16,7 +16,7 @@
         "custom/updates"
     ],
     "modules-right": [
-        "custom/window-name",
+        "custom/layout",
         "battery",
         "wireplumber",
         "custom/network",
@@ -63,9 +63,10 @@
         "on-click": "~/.config/waybar/scripts/audio-select.sh",
         "on-click-right": "~/.config/waybar/scripts/audio-input-select.sh"
     },
-    "dwl/window": {
-        "format": "layout [ {layout} ]",
-        "rotate": 0
+    "custom/layout": {
+        "exec": "~/.config/waybar/scripts/mango-layout.sh",
+        "return-type": "json",
+        "restart-interval": 3
     },
     "tray": {
         "spacing": 4
@@ -91,11 +92,5 @@
         "tooltip": true,
         "tooltip-format": "Power menu",
         "on-click": "~/.config/waybar/scripts/power-menu.sh"
-    },
-    "custom/window-name": {
-        "exec": "~/.config/waybar/scripts/niri-window.sh",
-        "return-type": "json",
-        "max-length": 60,
-        "tooltip": true
     }
 }
