@@ -291,7 +291,7 @@ spawn-at-startup "waybar"
 spawn-sh-at-startup "pkill swaybg; swaybg -i /home/david/SynologyDrive/system/wallpapers/girl_hair_paint.jpg -m fill"
 
 // Night light / color temperature adjustment
-spawn-at-startup "wlsunset" "-T" "5000" "-t" "4000" "-l" "35.7796" "-L" "-78.6382"
+spawn-at-startup "wlsunset" "-T" "6500" "-t" "4000" "-l" "35.7796" "-L" "-78.6382"
 
 // Clipboard manager daemon
 spawn-at-startup "copyq"
@@ -371,17 +371,6 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
-}
-
-// Firefox popups: transparency and blur
-window-rule {
-    match app-id=r#"firefox$"#
-    popups {
-        opacity 0.95
-        background-effect {
-            blur true
-        }
-    }
 }
 
 // Example: block out two password managers from screen capture.
