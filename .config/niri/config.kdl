@@ -284,6 +284,11 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+// Audio session bus (must start before wireplumber and waybar)
+spawn-at-startup "pipewire"
+spawn-at-startup "wireplumber"
+spawn-at-startup "pipewire-pulse"
+
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 
