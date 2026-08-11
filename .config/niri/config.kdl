@@ -441,12 +441,14 @@ window-rule {
     match is-focused=true
     exclude app-id=r#"^Alacritty$"#
     exclude app-id=r#"^teams-for-linux$"#
+    exclude app-id=r#"^com\.gabm\.satty$"#
     opacity 0.9
 }
 window-rule {
     match is-focused=false
     exclude app-id=r#"^Alacritty$"#
     exclude app-id=r#"^teams-for-linux$"#
+    exclude app-id=r#"^com\.gabm\.satty$"#
     opacity 0.8
 }
 
