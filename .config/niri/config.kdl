@@ -426,15 +426,27 @@ window-rule {
     }
 }
 
+// Teams-for-Linux opacity
+window-rule {
+    match app-id=r#"^teams-for-linux$"# is-focused=true
+    opacity 0.95
+}
+window-rule {
+    match app-id=r#"^teams-for-linux$"# is-focused=false
+    opacity 0.9
+}
+
 // Global opacity: focused windows slightly transparent, unfocused more so
 window-rule {
     match is-focused=true
     exclude app-id=r#"^Alacritty$"#
+    exclude app-id=r#"^teams-for-linux$"#
     opacity 0.9
 }
 window-rule {
     match is-focused=false
     exclude app-id=r#"^Alacritty$"#
+    exclude app-id=r#"^teams-for-linux$"#
     opacity 0.8
 }
 
