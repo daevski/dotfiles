@@ -78,7 +78,7 @@
     },
     "custom/updates": {
         "exec": "~/.config/waybar/scripts/updates.sh",
-        "interval": 3600,
+        "interval": 900,
         "signal": 8,
         "format": "pkgs [ {} ]",
         "tooltip": true,
