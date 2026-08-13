@@ -284,10 +284,6 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// Audio session bus (must start before wireplumber and waybar)
-spawn-at-startup "pipewire"
-spawn-at-startup "wireplumber"
-spawn-at-startup "pipewire-pulse"
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
@@ -313,6 +309,8 @@ spawn-at-startup "mako"
 // System tray / autostart apps (started here because lemurs bypasses xdg-desktop-autostart.target)
 spawn-at-startup "remmina" "-i"
 spawn-at-startup "synology-drive" "autostart"
+spawn-at-startup "discord" "--start-minimized"
+spawn-at-startup "teams-for-linux" "--minimized"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -409,6 +407,12 @@ window-rule {
     default-column-width { proportion 1.0; }
 }
 
+// Firefox - full width
+window-rule {
+    match app-id=r#"firefox$"#
+    default-column-width { proportion 1.0; }
+}
+
 // Google Chrome - full width
 window-rule {
     match app-id=r#"^google-chrome"#
@@ -424,6 +428,12 @@ window-rule {
     background-effect {
         blur true
     }
+}
+
+// Teams-for-Linux - full width
+window-rule {
+    match app-id=r#"^teams-for-linux$"#
+    default-column-width { proportion 1.0; }
 }
 
 // Teams-for-Linux opacity
