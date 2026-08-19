@@ -54,6 +54,9 @@
 .config/QtProject.conf
 .config/remmina
 .config/rncbc.org/
+.config/teams-for-linux/
+.config/novelist-devkit/auth/
+.config/teams-for-linux/
 .config/Thunar
 .config/transmission/
 .config/vivaldi/

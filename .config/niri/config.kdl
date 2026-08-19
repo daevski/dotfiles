@@ -446,12 +446,20 @@ window-rule {
     opacity 0.9
 }
 
+// imv: full opacity (image viewer)
+window-rule {
+    match app-id=r#"^imv(-dir)?$"#
+    opacity 1.0
+}
+
 // Global opacity: focused windows slightly transparent, unfocused more so
 window-rule {
     match is-focused=true
     exclude app-id=r#"^Alacritty$"#
     exclude app-id=r#"^teams-for-linux$"#
     exclude app-id=r#"^com\.gabm\.satty$"#
+    exclude app-id=r#"^google-chrome$"#
+    exclude app-id=r#"^imv(-dir)?$"#
     opacity 0.9
 }
 window-rule {
@@ -459,6 +467,8 @@ window-rule {
     exclude app-id=r#"^Alacritty$"#
     exclude app-id=r#"^teams-for-linux$"#
     exclude app-id=r#"^com\.gabm\.satty$"#
+    exclude app-id=r#"^google-chrome$"#
+    exclude app-id=r#"^imv(-dir)?$"#
     opacity 0.8
 }
 
