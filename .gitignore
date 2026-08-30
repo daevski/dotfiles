@@ -125,6 +125,25 @@ wallpaper.jpg
 .zcompdump
 .zsh_history
 
+.config/GIMP/
+.config/create-next-app-nodejs/
+.config/nextjs-nodejs/
+.config/nix/
+.cua-driver/
+.hermes/
+.net/
+.nix-channels
+.nix-defexpr/
+.nix-profile
+.obsidian/
+.python_history
+.vscode-shared/
+logs/
+result
+resume-diag-*.txt
+resume-diag.sh
+trust-home.sh
+
 # allow specific files
 
 !.config/qBittorrent/qBittorrent.conf
