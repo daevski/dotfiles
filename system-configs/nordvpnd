@@ -1,0 +1,41 @@
+#!/sbin/openrc-run
+
+description="NordVPN Daemon"
+
+command="/usr/sbin/nordvpnd"
+command_background="yes"
+pidfile="/run/nordvpnd.pid"
+# nordvpnd is slow to exit (tears down VPN routes/firewall); give it time
+# before SIGKILL so restarts don't false-fail and mark the service crashed.
+retry="TERM/30/KILL/5"
+output_log="/var/log/nordvpn/daemon.log"
+error_log="/var/log/nordvpn/daemon.log"
+
+depend() {
+	need net
+	use dns
+	after firewall
+}
+
+start_pre() {
+	# Socket lives here; group must be nordvpn so members can reach the daemon.
+	# (systemd normally provides this via RuntimeDirectory + nordvpnd.socket)
+	checkpath --directory --owner root:nordvpn --mode 0750 /run/nordvpn
+	checkpath --directory --owner root:nordvpn --mode 0750 /var/log/nordvpn
+}
+
+start_post() {
+	# nordvpnd creates its socket as root:root when not socket-activated.
+	# systemd's nordvpnd.socket would set SocketGroup=nordvpn; replicate that
+	# so nordvpn-group members (i.e. the desktop user) can connect.
+	local sock="/run/nordvpn/nordvpnd.sock"
+	local i=0
+	while [ ! -S "$sock" ] && [ "$i" -lt 50 ]; do
+		sleep 0.1
+		i=$((i + 1))
+	done
+	if [ -S "$sock" ]; then
+		chgrp nordvpn "$sock"
+		chmod 0660 "$sock"
+	fi
+}
