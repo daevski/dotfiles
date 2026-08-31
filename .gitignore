@@ -80,10 +80,12 @@
 .dropbox-dist/
 Dropbox/
 .dotnet
+.electron-gyp/
 .ghcp-appmod/
 .gnupg/
 .guard/
 .icons
+.jfrog/
 .lesshst
 .local
 .mozilla
@@ -92,6 +94,7 @@ Dropbox/
 .ollama
 .pki
 .pyenv/
+.config/rclone/
 .rest-client/
 .smbcred*
 .ssh
@@ -106,6 +109,7 @@ Dropbox/
 .zoom/
 *.bak*
 *.swp
+nohup.out
 code/
 Desktop
 development
