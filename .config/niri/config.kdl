@@ -297,6 +297,11 @@ spawn-at-startup "wlsunset" "-T" "6500" "-t" "4000" "-l" "35.7796" "-L" "-78.638
 // Clipboard manager daemon
 spawn-at-startup "copyq"
 
+// Audio stack (started here because lemurs bypasses the systemd user session that would socket-activate PipeWire)
+spawn-at-startup "pipewire"
+spawn-at-startup "pipewire-pulse"
+spawn-at-startup "wireplumber"
+
 // XWayland support for X11-only applications (e.g. Synology Drive)
 xwayland-satellite
 

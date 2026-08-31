@@ -66,6 +66,10 @@ gaps {
 floating_modifier $mod normal
 
 exec copyq
+# Audio stack (lemurs bypasses the systemd user session that would socket-activate PipeWire)
+exec pipewire
+exec pipewire-pulse
+exec wireplumber
 # exec flameshot
 # Screenshot region and annotate with satty
 bindsym Print exec grim -g "$(slurp)" - | satty --filename -
