@@ -40,7 +40,7 @@ _graceful_session_end() {
     trap - TERM HUP
 }
 
-chosen=$(printf 'Shutdown\nReboot\nHibernate\n' | rofi -dmenu -p "Power")
+chosen=$(printf 'Hibernate\nReboot\nShutdown\n' | rofi -dmenu -p "Power")
 
 case "$chosen" in
     Shutdown)
